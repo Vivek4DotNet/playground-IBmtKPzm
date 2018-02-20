@@ -8,7 +8,7 @@ namespace Answer
 {
 	public class UniverseStub
 	{
-		public static void allBench(int loop, int arraySize, int rerun)
+		static void allBench(int loop, int arraySize, int rerun)
 		{
 		    Stopwatch sw = new Stopwatch();
 		    Random random = new Random();
@@ -21,10 +21,9 @@ namespace Answer
 			return ar;
 		    };
 
-		    Action<int, int> bench1 = (K, n) =>
+		    Action<int, int> bench1 = (K, N) =>
 		    {
 			sw.Restart();
-			int N = Vector<int>.Count * n;
 			int[] x = genRandomIntArray2(N);
 			int[] y = genRandomIntArray2(N);
 			int[] r = new int[N];
@@ -40,10 +39,9 @@ namespace Answer
 			Console.WriteLine($"Elapsed {sw.ElapsedMilliseconds,6} ms");
 		    };
 
-		    Action<int, int> bench2 = (K, n) =>
+		    Action<int, int> bench2 = (K, N) =>
 		    {
 			sw.Restart();
-			int N = Vector<int>.Count * n;
 			int[] x = genRandomIntArray2(N);
 			int[] y = genRandomIntArray2(N);
 			int[] r = new int[N];
@@ -65,10 +63,9 @@ namespace Answer
 		    };
 
 
-		    Action<int, int> bench3 = (K, n) =>
+		    Action<int, int> bench3 = (K, N) =>
 		    {
 			sw.Restart();
-			int N = Vector<short>.Count * n;
 			int[] xb = genRandomIntArray2(N);
 			short[] x = xb.Select(ix => (short)ix).ToArray();
 			int[] yb = genRandomIntArray2(N);
@@ -93,7 +90,7 @@ namespace Answer
 
 		    int m0 = rerun;
 		    int m1 = loop;
-		    int m2 = arraySize;
+		    int m2 = arraySize * 16;
 
 		    Console.WriteLine("#### Normal Computation");
 		    for (int i = 0; i < m0; ++i) bench1(m1, m2);
@@ -104,13 +101,13 @@ namespace Answer
 		    Console.WriteLine();
 
 		    Console.WriteLine("#### SIMD Computation 2");
-		    for (int i = 0; i < m0; ++i) bench3(m1, m2 / 2);
+		    for (int i = 0; i < m0; ++i) bench3(m1, m2);
 		    Console.WriteLine();
 		}
-		
+
 // }
 public static void run_SIMD_AVX_on_CSharp(){
-	allBench(loop: 10000, arraySize: 1000, rerun: 10);
+	allBench(loop: 10000, arraySize: 500, rerun: 10); // array size will be multiplied by 16
 }
 //{ autofold
 	}

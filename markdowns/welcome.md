@@ -1,6 +1,6 @@
 # Welcome!
 
-This C# will shows to us a simple basic examples of SIMD / AVX.
+This C# code will shows to us a simple basic examples of SIMD / AVX.
 
 
 The source code is on [GitHub](https://github.com/TechDotIO/csharp-template), please feel free to come up with proposals to improve it.

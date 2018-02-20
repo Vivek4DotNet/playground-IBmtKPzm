@@ -6,7 +6,6 @@ namespace Answer
 {
 	public class UniverseStub
 	{
-
 		public static void allBench(int loop, int arraySize, int rerun)
 		{
 		    Stopwatch sw = new Stopwatch();
@@ -108,7 +107,7 @@ namespace Answer
 		}
 		
 // }
-public static void testSIMD_AVXonCSharp(){
+public static void run_SIMD_AVX_on_CSharp(){
 	allBench(loop: 1000, arraySize: 10000, rerun: 5);
 }
 //{ autofold

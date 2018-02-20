@@ -1,4 +1,4 @@
-title: Parallelism on single Core with .NET C# and SIMD / AVX
+title: Parallelism on single Core with .NET C# and SIMD / AVX. First Example.
 plan:
 - title: Welcome
   statement: markdowns/welcome.md

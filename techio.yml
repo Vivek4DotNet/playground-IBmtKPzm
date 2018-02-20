@@ -1,4 +1,4 @@
-title: .NET Core C# Project
+title: Parallelism on single Core with C# and SIMD / AVX.NET
 plan:
 - title: Welcome
   statement: markdowns/welcome.md

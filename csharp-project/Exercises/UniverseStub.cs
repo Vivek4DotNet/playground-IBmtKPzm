@@ -110,7 +110,7 @@ namespace Answer
 		
 // }
 public static void run_SIMD_AVX_on_CSharp(){
-	allBench(loop: 1000, arraySize: 10000, rerun: 5);
+	allBench(loop: 10000, arraySize: 1000, rerun: 10);
 }
 //{ autofold
 	}
